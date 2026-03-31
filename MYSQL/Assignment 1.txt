@@ -1,0 +1,79 @@
+                                                                   Assignment 1
+
+
+
+Q1). show databases;
+
+Q2).  create table countries(
+        country_id int primary key,
+        country_name varchar(25),
+        region_id int);
+
+Q3).create table jobs(
+    -> job_id int primary key,
+    -> job_title varchar(25),
+    -> min_salary decimal(7,2),
+    -> max_salary decimal(7,2) check(max_salary <= 25000));
+
+Q4). create table job_history(
+    -> employee_id int,
+    -> start_date date,
+    -> end_date date,
+    -> job_id int,
+    -> dept_id int);
+
+Q5).  alter table countries
+    -> modify country_id int unique;
+
+Q6).  create  table jobs_default(
+    -> job_id int,
+    -> job_title varchar(25) default "",
+    -> min_salary decimal(7,2) default 8000,
+    -> max_salary decimal(7,2) default null);
+
+Q7). CREATE TABLE departments (
+    ->     department_id DECIMAL(4,0) NOT NULL,
+    ->     department_name VARCHAR(30) NOT NULL,
+    ->     manager_id DECIMAL(6,0) NOT NULL,
+    ->     location_id DECIMAL(4,0),
+    ->     PRIMARY KEY (department_id, manager_id)
+    -> );
+
+Q8).   create table employees(
+    -> employee_id int primary key,
+    -> first_name varchar(50),
+    -> Last_name varchar(50),
+    -> email varchar(20),
+    -> phone_no int,
+    -> hire_date date,
+    -> job_id int,
+    -> salary decimal(7,2),
+    -> commission decimal(7,2),
+    -> manager_id int,
+    -> department_id int);
+
+       alter table employees
+    -> add foreign key (department_id)
+    -> references departments(department_id);
+
+Q9). step 1.
+        create table department_managers(
+    -> department_id decimal(4,0),
+    -> manager_id decimal(6,0),
+    -> manager_name varchar(50) not null,
+    -> primary key(department_id, manager_id));
+
+     step 2.
+         ALTER TABLE employees
+    -> ADD FOREIGN KEY (department_id, manager_id)
+    -> REFERENCES department_managers(department_id, manager_id);
+
+
+
+
+
+
+
+
+
+
