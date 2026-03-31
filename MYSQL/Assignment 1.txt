@@ -5,7 +5,7 @@
 Q1). show databases;
 
 Q2).  create table countries(
-        country_id int primary key,
+        country_id int ,
         country_name varchar(25),
         region_id int);
 
